@@ -2,6 +2,28 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "docker: compose up gradio@gpu",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/docker/up.gradio@gpu/",
+            },
+            "command": "docker compose -p reverse-from-synthid up",
+        },
+        {
+            "label": "docker: compose up gradio@cpu",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/docker/up.gradio@cpu/",
+            },
+            "command": "docker compose -p reverse-from-synthid up",
+        },
+        {
+            "label": "docker: build latest",
+            "type": "shell",
+            "command": "docker build -t xiaoyao9184/reverse-from-synthid:latest -f ./docker/build@source/dockerfile .",
+        },
+
+        {
             "label": "hf: download models",
             "type": "shell",
             "options": {
