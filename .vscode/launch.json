@@ -2,6 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "v4 space",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/gradio/space.py",
+            "console": "integratedTerminal",
+            "env": {
+                "APP_PATH": "${workspaceFolder}/reverse-SynthID",
+                "HF_HUB_OFFLINE": "true",
+                "XDG_CACHE_HOME": "${workspaceFolder}/cache",
+            }
+        },
+        {
             "name": "v4 gradio",
             "type": "debugpy",
             "request": "launch",
