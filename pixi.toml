@@ -27,6 +27,8 @@ accelerate = ">=0.20.0"
 google-genai = ">=1.0.0"
 python-dotenv = ">=1.0.0"
 
+spaces = ">=0.51.0"
+
 
 [feature.cpu]
 platforms = ["linux-64"]
@@ -46,7 +48,16 @@ cuda-version = ">=12.9,<13"
 pytorch-gpu = "*"
 
 
+[feature.space]
+platforms = ["linux-64"]
+
+[feature.space.dependencies]
+python = "==3.12"
+pytorch = "==2.11.0"
+
+
 [environments]
 cuda = ["cuda"]
 cpu = ["cpu"]
 default = ["cuda"]
+space = ["space"]
