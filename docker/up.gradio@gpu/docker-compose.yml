@@ -1,0 +1,19 @@
+
+
+services:
+  synthid_gradio:
+    image: xiaoyao9184/reverse-from-synthid:latest
+    container_name: synthid_gradio
+    environment:
+      - TORCH_DEVICE=cuda
+      - HF_HUB_OFFLINE=true
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./../../cache:/root/.cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
