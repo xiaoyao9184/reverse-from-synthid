@@ -1,0 +1,3 @@
+[submodule "reverse-SynthID"]
+	path = reverse-SynthID
+	url = https://github.com/aloshdenny/reverse-SynthID.git
