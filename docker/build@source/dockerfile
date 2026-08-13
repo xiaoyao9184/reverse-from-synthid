@@ -1,0 +1,34 @@
+FROM pytorch/pytorch:2.13.0-cuda12.6-cudnn9-runtime
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-venv \
+    libgl1 \
+    libglib2.0-0 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m venv --system-site-packages /opt/venv \
+    && /opt/venv/bin/python -m pip install --upgrade pip
+
+COPY ./docker/build@source/requirements.txt /workspace/requirements.txt
+
+RUN /opt/venv/bin/python -m pip install --no-cache-dir \
+    -r /workspace/requirements.txt
+
+COPY ./reverse-SynthID /app
+
+COPY ./gradio /workspace/gradio
+
+EXPOSE 7860
+
+VOLUME /root/.cache
+
+ENV APP_PATH=/app
+ENV PATH="/opt/venv/bin:${PATH}"
+ENV GRADIO_SERVER_NAME="0.0.0.0"
+
+WORKDIR /workspace/gradio
+
+CMD ["gradio", "gradio_app.py"]
