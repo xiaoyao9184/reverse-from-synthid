@@ -208,6 +208,9 @@ def load_codebook():
 codebook = load_codebook()
 
 import gradio as gr
+from telemetry_counter import patch_button_click
+
+patch_button_click()
 
 V1_MODES = ["light", "balanced", "aggressive", "maximum"]
 V2_STRENGTHS = ["moderate", "aggressive", "maximum"]
