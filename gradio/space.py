@@ -1,3 +1,9 @@
+import sys
+
+from git_clone import install_src
+
+install_src()
+
 # run gradio in subprocess in reloaded mode
 # huggingface space issue: https://github.com/gradio-app/gradio/issues/10048
 # need disable reload for huggingface space
