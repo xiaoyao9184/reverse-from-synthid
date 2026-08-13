@@ -208,6 +208,7 @@ def load_codebook():
 codebook = load_codebook()
 
 import gradio as gr
+import spaces
 from telemetry_counter import patch_button_click
 
 patch_button_click()
@@ -347,6 +348,7 @@ with gr.Blocks() as demo:
         )
         return format_remove_result(result)
 
+    @spaces.GPU
     def handle_remove_v4(
         img: np.ndarray, strength: str, model: str, verify: bool
     ):
