@@ -2,6 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "v4 gradio",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/gradio/gradio_bin.py",
+            "console": "integratedTerminal",
+            "args": [
+                "${workspaceFolder}/gradio/gradio_app.py"
+            ],
+            "env": {
+                "APP_PATH": "${workspaceFolder}/reverse-SynthID",
+                "HF_HUB_OFFLINE": "true",
+                "XDG_CACHE_HOME": "${workspaceFolder}/cache",
+            }
+        },
+
+        {
             "name": "v3 gui",
             "type": "debugpy",
             "request": "launch",
