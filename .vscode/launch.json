@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "v3 gui",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/reverse-SynthID/gui/gui.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "v3 synthid_bypass",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/reverse-SynthID/src/extraction/synthid_bypass.py",
+            "console": "integratedTerminal",
+            "args": [
+                "bypass",
+                "${workspaceFolder}/reverse-SynthID/assets/sample_watermarked.png",
+                "${workspaceFolder}/reverse-SynthID/assets/sample_watermarked.output.png",
+                "--codebook",
+                "${workspaceFolder}/reverse-SynthID/artifacts/spectral_codebook_v3.npz",
+                "--strength",
+                "aggressive",
+            ]
+        },
+        {
+            "name": "v3 robust_extractor",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/reverse-SynthID/src/extraction/robust_extractor.py",
+            "console": "integratedTerminal",
+            "args": [
+                "detect",
+                "${workspaceFolder}/reverse-SynthID/assets/sample_watermarked.png",
+                "--codebook",
+                "${workspaceFolder}/reverse-SynthID/artifacts/codebook/robust_codebook.pkl",
+            ]
+        },
+    ]
+}
