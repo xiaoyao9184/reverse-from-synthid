@@ -9,6 +9,7 @@ version = "0.1.0"
 
 [dependencies]
 python = ">=3.10"
+gradio = ">=6.22.0,<7"
 
 [pypi-dependencies]
 numpy = ">=1.21.0"
