@@ -55,6 +55,9 @@ platforms = ["linux-64"]
 python = "==3.12"
 pytorch = "==2.11.0"
 
+[feature.space.pypi-dependencies]
+GitPython = "==3.1.43"
+
 
 [environments]
 cuda = ["cuda"]
