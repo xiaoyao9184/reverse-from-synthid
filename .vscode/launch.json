@@ -5,7 +5,7 @@
             "name": "v4 space",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/gradio/space.py",
+            "program": "${workspaceFolder}/space/space.py",
             "console": "integratedTerminal",
             "env": {
                 "APP_PATH": "${workspaceFolder}/reverse-SynthID",
