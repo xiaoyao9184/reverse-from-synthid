@@ -8,6 +8,8 @@ on:
       - 'feature/hf-space-sync'
     paths:
       - gradio/**
+      - space/**
+      - scripts/link-gradio.sh
       - .github/workflows/hf-space-sync.yml
 
 jobs:
@@ -22,6 +24,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
+      - name: Prepare Space directory
+        run: scripts/link-gradio.sh space/
+
       - name: Sync to HuggingFace
         uses: xiaoyao9184/huggingface-sync-action@5d6858f36500be81bd63443f6138b3d5a14d46ea
         with:
@@ -30,6 +35,6 @@ jobs:
           repo_type: 'space'
           private: false
           space_sdk: 'gradio'
-          subdirectory: 'gradio'
+          subdirectory: 'space'
           include_readme: true
           generate_message: true
