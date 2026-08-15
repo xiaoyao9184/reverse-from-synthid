@@ -1,0 +1,37 @@
+
+name: ModelScope Studio Sync
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/hf-studio-sync'
+    paths:
+      - gradio/**
+      - studio/**
+      - scripts/link-gradio.sh
+      - .github/workflows/ms-studio-sync.yml
+
+jobs:
+  push-ms-studio:
+    name: Push source code to ModelScope
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Prepare Studio directory
+        run: bash scripts/link-gradio.sh --mode copy studio/
+
+      - name: Sync to ModelScope
+        uses: xiaoyao9184/modelscope-sync-action@v0.0.2
+        with:
+          modelscope_repo_id: '${{ secrets.MODELSCOPE_USERNAME }}/reverse-from-synthid'
+          modelscope_token: ${{ secrets.MODELSCOPE_TOKEN }}
+          repo_type: 'studio'
+          private: false
+          sdk_type: 'gradio'
+          subdirectory: 'studio'
+          include_readme: true
+          generate_message: true
