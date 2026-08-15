@@ -60,8 +60,20 @@ pytorch = "==2.11.0"
 GitPython = "==3.1.43"
 
 
+[feature.studio]
+platforms = ["linux-64"]
+
+[feature.studio.dependencies]
+python = "==3.11"
+pytorch = "==2.3.1"
+
+[feature.studio.pypi-dependencies]
+GitPython = "==3.1.43"
+
+
 [environments]
 cuda = ["cuda"]
 cpu = ["cpu"]
 default = ["cuda"]
 space = ["space"]
+studio = ["studio"]
