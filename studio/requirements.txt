@@ -15,4 +15,5 @@ accelerate==1.14.0
 google-genai==2.17.0
 python-dotenv==1.1.0
 
+spaces==0.51.1
 GitPython==3.1.43
