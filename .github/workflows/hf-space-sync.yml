@@ -28,7 +28,7 @@ jobs:
         run: bash scripts/link-gradio.sh --mode copy space/
 
       - name: Sync to HuggingFace
-        uses: xiaoyao9184/huggingface-sync-action@5d6858f36500be81bd63443f6138b3d5a14d46ea
+        uses: xiaoyao9184/huggingface-sync-action@v0.0.5-0.0.2
         with:
           huggingface_repo_id: '${{ secrets.HF_USERNAME }}/reverse-from-synthid'
           hf_token: ${{ secrets.HF_TOKEN }}
