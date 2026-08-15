@@ -16,9 +16,6 @@ jobs:
   push-hf-space:
     name: Push source code to HuggingFace
     runs-on: ubuntu-latest
-    env:
-      # Fix BUG https://github.com/huggingface/huggingface_hub/issues/4571
-      HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
     steps:
       - name: Checkout code
