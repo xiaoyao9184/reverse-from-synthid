@@ -227,7 +227,7 @@ V4_MODELS = ["Auto"] + codebook.v4_codebook.models
 with gr.Blocks() as demo:
     gr.Markdown(
     """
-    # ⚓ Reverse SynthId watermark for detect and remov
+    # ⚓ Reverse SynthId watermark for detect and remove
 
     Find the original project [here](https://github.com/aloshdenny/reverse-SynthID).
     Or this project [here](https://github.com/xiaoyao9184/reverse-from-synthid).
