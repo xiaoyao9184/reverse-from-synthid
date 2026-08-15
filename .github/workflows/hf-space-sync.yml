@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Prepare Space directory
-        run: scripts/link-gradio.sh space/
+        run: bash scripts/link-gradio.sh --mode copy space/
 
       - name: Sync to HuggingFace
         uses: xiaoyao9184/huggingface-sync-action@5d6858f36500be81bd63443f6138b3d5a14d46ea
