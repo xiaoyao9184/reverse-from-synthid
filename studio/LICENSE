@@ -1,0 +1,9 @@
+Project License Notice
+
+This project depends on the [reverse-SynthID](https://github.com/aloshdenny/reverse-SynthID) project and includes code that is
+derived from, adapted from, or otherwise governed by the reverse-SynthID
+license terms below. Because this project is subject to the original
+reverse-SynthID license restrictions, code in this project should be used under
+the original reverse-SynthID license.
+
+Original [license](https://github.com/aloshdenny/reverse-SynthID/blob/main/LICENSE).
