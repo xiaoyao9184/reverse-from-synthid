@@ -64,8 +64,8 @@ GitPython = "==3.1.43"
 platforms = ["linux-64"]
 
 [feature.studio.dependencies]
-python = "==3.11"
-pytorch = "==2.3.1"
+python = "==3.12"
+pytorch = "==2.10.0"
 
 [feature.studio.pypi-dependencies]
 GitPython = "==3.1.43"
