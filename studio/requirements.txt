@@ -8,7 +8,7 @@ scikit-learn==1.7.2
 Pillow==12.0.0
 matplotlib==3.10.6
 tqdm==4.67.1
-torch==2.3.1
+torch==2.10.0
 diffusers==0.39.0
 safetensors==0.8.0
 accelerate==1.14.0
