@@ -2,6 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "v4 studio",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/studio/studio.py",
+            "console": "integratedTerminal",
+            "env": {
+                "APP_PATH": "${workspaceFolder}/reverse-SynthID",
+                "HF_HUB_OFFLINE": "true",
+                "XDG_CACHE_HOME": "${workspaceFolder}/cache",
+            },
+            "preLaunchTask": "shell: link gradio to studio",
+        },
+        {
             "name": "v4 space",
             "type": "debugpy",
             "request": "launch",

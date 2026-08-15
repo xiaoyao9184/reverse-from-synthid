@@ -2,6 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "shell: link gradio to studio",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/link-gradio.sh",
+            "args": [
+                "--mode",
+                "${input:linkMode}",
+                "${workspaceFolder}/studio",
+                "${workspaceFolder}/gradio"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "shell: link gradio to space",
             "type": "shell",
             "command": "${workspaceFolder}/scripts/link-gradio.sh",
