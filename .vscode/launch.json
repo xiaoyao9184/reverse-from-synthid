@@ -11,7 +11,8 @@
                 "APP_PATH": "${workspaceFolder}/reverse-SynthID",
                 "HF_HUB_OFFLINE": "true",
                 "XDG_CACHE_HOME": "${workspaceFolder}/cache",
-            }
+            },
+            "preLaunchTask": "shell: link gradio to space",
         },
         {
             "name": "v4 gradio",

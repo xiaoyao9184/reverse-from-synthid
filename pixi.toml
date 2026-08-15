@@ -6,7 +6,7 @@ platforms = ["linux-64"]
 version = "0.1.0"
 
 [tasks]
-link-gradio = "bash scripts/link-gradio.sh space/"
+link-gradio = "bash scripts/link-gradio.sh --mode link space/"
 
 [dependencies]
 python = ">=3.10"

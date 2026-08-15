@@ -2,16 +2,19 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TARGET_DIR="${1:-}"
-GRADIO_DIR="${2:-gradio}"
+MODE="link"
+TARGET_DIR=""
+GRADIO_DIR="gradio"
 
 usage() {
   cat <<'USAGE'
-Usage: scripts/link-gradio.sh TARGET_DIR [GRADIO_DIR]
+Usage: scripts/link-gradio.sh [--mode link|copy] TARGET_DIR [GRADIO_DIR]
+       scripts/link-gradio.sh link|copy TARGET_DIR [GRADIO_DIR]
 
-Create TARGET_DIR/gradio as a symlink to GRADIO_DIR. If symlinking fails,
-fall back to copying GRADIO_DIR. Relative paths are resolved from the
-repository root. GRADIO_DIR defaults to gradio.
+Create TARGET_DIR/gradio from GRADIO_DIR. In link mode, create a symlink and
+fall back to copying if symlinking fails. In copy mode, copy GRADIO_DIR
+directly. Relative paths are resolved from the repository root. GRADIO_DIR
+defaults to gradio.
 USAGE
 }
 
@@ -22,9 +25,47 @@ resolve_path() {
   esac
 }
 
-if [[ "${TARGET_DIR}" == "-h" || "${TARGET_DIR}" == "--help" ]]; then
-  usage
-  exit 0
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --mode)
+      if [[ $# -lt 2 ]]; then
+        echo "Missing value for --mode." >&2
+        usage >&2
+        exit 2
+      fi
+      MODE="${2:-}"
+      shift 2
+      ;;
+    --mode=*)
+      MODE="${1#--mode=}"
+      shift
+      ;;
+    link|copy)
+      MODE="$1"
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      if [[ -z "${TARGET_DIR}" ]]; then
+        TARGET_DIR="$1"
+      elif [[ "${GRADIO_DIR}" == "gradio" ]]; then
+        GRADIO_DIR="$1"
+      else
+        echo "Unexpected argument: $1" >&2
+        usage >&2
+        exit 2
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [[ "${MODE}" != "link" && "${MODE}" != "copy" ]]; then
+  echo "Unsupported mode: ${MODE}. Expected link or copy." >&2
+  exit 2
 fi
 
 if [[ -z "${TARGET_DIR}" ]]; then
@@ -46,6 +87,12 @@ mkdir -p "${TARGET_DIR}"
 DEST="${TARGET_DIR}/gradio"
 if [[ -e "${DEST}" || -L "${DEST}" ]]; then
   rm -rf "${DEST}"
+fi
+
+if [[ "${MODE}" == "copy" ]]; then
+  cp -R "${GRADIO_DIR}" "${DEST}"
+  echo "Copied ${GRADIO_DIR} to ${DEST}"
+  exit 0
 fi
 
 LINK_TARGET="${GRADIO_DIR}"
