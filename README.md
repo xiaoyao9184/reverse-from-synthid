@@ -6,6 +6,8 @@ A Docker image built through Github Actions with Git commit version tag
 
 [![HuggingFace Space Sync](https://github.com/xiaoyao9184/reverse-from-synthid/actions/workflows/hf-space-sync.yml/badge.svg)](https://github.com/xiaoyao9184/reverse-from-synthid/actions/workflows/hf-space-sync.yml) [![](https://img.shields.io/badge/HuggingFace-space-ff9f44?logo=huggingface)](https://huggingface.co/spaces/xiaoyao9184/reverse-from-synthid)
 
+[![ModelScope Studio Sync](https://github.com/xiaoyao9184/reverse-from-synthid/actions/workflows/ms-studio-sync.yml/badge.svg)](https://github.com/xiaoyao9184/reverse-from-synthid/actions/workflows/ms-studio-sync.yml) [![](https://img.shields.io/badge/ModelScope-sudio-644cfd?logo=modelscope)](https://modelscope.ai/studios/xiaoyao9184/reverse-from-synthid)
+
 ## Why
 
 I found that Reverse-Engineering SynthID is useful as an image watermark research tool,
@@ -51,6 +53,7 @@ The app wraps the `reverse-SynthID` detector and bypass pipelines, including V1,
 
 The source code for the Gradio App is located in the [gradio](./gradio) directory of this project.
 A demo of this project is also available and auto-synced on Hugging Face Spaces: [xiaoyao9184/reverse-from-synthid](https://huggingface.co/spaces/xiaoyao9184/reverse-from-synthid)
+A demo of this project is also available and auto-synced on Model Scope Studios: [xiaoyao9184/reverse-from-synthid](https://modelscope.ai/studios/xiaoyao9184/reverse-from-synthid)
 
 To run the Gradio App with Docker Compose, choose the runtime that matches your machine:
 
@@ -72,7 +75,7 @@ so make sure the required model files are already available before using those c
 ## Change
 
 You can fork this project and build your own image.
-You will need to provide the following variables: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `HF_USERNAME`, `HF_TOKEN`.
+You will need to provide the following variables: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`, `HF_USERNAME`, `HF_TOKEN`, `MODELSCOPE_USERNAME`, `MODELSCOPE_TOKEN`.
 GitHub Container Registry publishing uses the built-in `GITHUB_TOKEN`.
 
 See [docker/login-action](https://github.com/docker/login-action#docker-hub) for Docker Hub login details.
